@@ -1,18 +1,11 @@
-package com.cognizant.sharecar.repository.entity;
+package com.cognizant.sharecar.service;
 
 import com.cognizant.sharecar.common.spi.model.Priority;
 import com.cognizant.sharecar.common.spi.model.TaskStatus;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
-public class Task {
-
-    @Id
-    @GeneratedValue
+public class TaskView {
     private Long taskId;
     private String title;
     private String description;
@@ -20,23 +13,13 @@ public class Task {
     private TaskStatus status;
     private Priority priority;
 
-    public Task(String title, String description, LocalDateTime endDate, TaskStatus status, Priority priority) {
-        this.title = title;
-        this.description = description;
-        this.endDate = endDate;
-        this.status = status;
-        this.priority = priority;
-    }
+    public TaskView(){
 
-    public Task() {
-        // Needed for JPA
     }
 
     public Long getTaskId() {
         return taskId;
     }
-
-
 
     public void setTaskId(Long taskId) {
         this.taskId = taskId;
@@ -80,17 +63,5 @@ public class Task {
 
     public void setPriority(Priority priority) {
         this.priority = priority;
-    }
-
-    @Override
-    public String toString() {
-        return "Task{" +
-                "taskId=" + taskId +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", endDate=" + endDate +
-                ", status=" + status +
-                ", priority=" + priority +
-                '}';
     }
 }
